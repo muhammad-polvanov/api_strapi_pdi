@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_articles",
+  "info": {
+    "singularName": "news",
+    "pluralName": "news-articles",
+    "displayName": "news",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "model": "file",
+      "type": "media",
+      "via": "related",
+      "multiple": false,
+      "required": false,
+      "plugin": "upload",
+      "allowedTypes": ["images"]
+    },
+    "newsContent": {
+      "type": "richtext"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "news"
+    }
+  }
+}
